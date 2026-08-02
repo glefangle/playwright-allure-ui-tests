@@ -1,0 +1,9 @@
+.env
+allure-results/
+allure-report/
+test-artifacts/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+INTERVIEW_NOTES.md
