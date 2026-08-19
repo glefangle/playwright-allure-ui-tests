@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     base_url: str = "https://www.saucedemo.com"
     standard_user: str = "standard_user"
     locked_user: str = "locked_out_user"
+    performance_glitch_user: str = "performance_glitch_user"
     password: str = "secret_sauce"
     headless: bool = True
     slow_mo: int = 0

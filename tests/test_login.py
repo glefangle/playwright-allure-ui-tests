@@ -1,3 +1,5 @@
+import time
+
 import allure
 import pytest
 
@@ -17,6 +19,24 @@ def test_successful_login_redirects_to_inventory(login_page: LoginPage) -> None:
         inventory = InventoryPage(login_page.page)
         inventory.base_url = login_page.base_url
         inventory.expect_loaded()
+
+
+@allure.feature("Authentication")
+@allure.story("Login")
+@pytest.mark.regression
+def test_performance_glitch_user_can_login_but_slowly(login_page: LoginPage) -> None:
+    """saucedemo injects a multi-second delay for this user: login works, but visibly slow."""
+    started_at = time.monotonic()
+    with allure.step("Login as performance_glitch_user"):
+        login_page.login(get_settings().performance_glitch_user, get_settings().password)
+
+        inventory = InventoryPage(login_page.page)
+        inventory.base_url = login_page.base_url
+        inventory.expect_loaded()
+    login_seconds = time.monotonic() - started_at
+
+    with allure.step(f"Login took {login_seconds:.1f}s instead of a fraction of a second"):
+        assert login_seconds > 2.0, "performance_glitch_user should add a noticeable delay"
 
 
 @allure.feature("Authentication")
