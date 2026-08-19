@@ -1,8 +1,12 @@
 """Centralized test settings loaded from environment / .env file."""
 
+import os
 from functools import lru_cache
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# CI runners are slower than a local machine; TIMEOUT in .env still wins if set
+DEFAULT_TIMEOUT = 30.0 if os.getenv("CI") else 15.0
 
 
 class Settings(BaseSettings):
@@ -15,7 +19,7 @@ class Settings(BaseSettings):
     password: str = "secret_sauce"
     headless: bool = True
     slow_mo: int = 0
-    timeout: float = 15.0
+    timeout: float = DEFAULT_TIMEOUT
     log_level: str = "INFO"
 
 
