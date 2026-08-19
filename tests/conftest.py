@@ -102,6 +102,7 @@ def login_page(page: Page) -> LoginPage:
     login_page = LoginPage(page)
     login_page.base_url = get_settings().base_url
     login_page.open()
+    login_page.expect_loaded()
     return login_page
 
 

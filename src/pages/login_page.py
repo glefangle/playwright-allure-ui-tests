@@ -16,6 +16,10 @@ class LoginPage(BasePage):
         # Error text is rendered inside an h3[data-test=error] block
         self.error_message = page.locator("[data-test='error']")
 
+    def expect_loaded(self) -> None:
+        expect(self.login_button).to_be_visible()
+        expect(self.username_input).to_be_visible()
+
     def login(self, username: str, password: str) -> None:
         self.username_input.fill(username)
         self.password_input.fill(password)

@@ -18,6 +18,7 @@ def test_item_appears_in_cart(inventory_page: InventoryPage) -> None:
 
     cart = CartPage(inventory_page.page)
     cart.base_url = inventory_page.base_url
+    cart.expect_loaded()
 
     with allure.step("The cart contains exactly the added product"):
         cart.expect_items_count(1)
@@ -41,6 +42,7 @@ def test_full_checkout_flow(inventory_page: InventoryPage) -> None:
         cart.proceed_to_checkout()
         checkout = CheckoutPage(inventory_page.page)
         checkout.base_url = inventory_page.base_url
+        checkout.expect_loaded()
         checkout.fill_details(first_name, last_name, postal_code)
 
     with allure.step("Finish the order"):
