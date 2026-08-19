@@ -1,5 +1,5 @@
 [project]
-name = "ui-autotests"
+name = "playwright-allure-ui-tests"
 version = "0.1.0"
 description = "UI test framework: Playwright + pytest + Page Object Model + Allure"
 requires-python = ">=3.12"

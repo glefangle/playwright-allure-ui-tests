@@ -1,4 +1,4 @@
-# UI Autotests -- saucedemo.com
+# playwright-allure-ui-tests
 
 UI test framework: Playwright (Python, sync API) + `pytest` + Page Object Model + Allure Report.
 
@@ -9,7 +9,7 @@ full checkout flow.
 ## Architecture
 
 ```
-ui-autotests/
+playwright-allure-ui-tests/
 ├── src/
 │   ├── config/              # pydantic-settings, .env-driven configuration
 │   └── pages/               # Page Objects: locators + actions + page-level assertions
@@ -92,5 +92,9 @@ All settings come from environment variables or `.env` (see `.env.example`):
 ## CI / Allure
 
 Every push/PR runs: **lint -> typecheck -> test**. The Allure report (with trend history)
-is published to GitHub Pages: `https://<owner>.github.io/<repo>/`. On failure, traces and
+is published to GitHub Pages: `https://glefangle.github.io/playwright-allure-ui-tests/`. On failure, traces and
 screenshots are also uploaded as CI artifacts.
+
+## License
+
+[MIT](LICENSE)
