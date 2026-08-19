@@ -2,8 +2,9 @@
 
 UI test framework: Playwright (Python, sync API) + `pytest` + Page Object Model + Allure Report.
 
-11 scenarios against [saucedemo.com](https://www.saucedemo.com): login (positive & negative),
-product listing and sorting, cart management, full checkout flow.
+12 scenarios against [saucedemo.com](https://www.saucedemo.com): login (positive & negative,
+including the slow performance_glitch_user), product listing and sorting, cart management,
+full checkout flow.
 
 ## Architecture
 
