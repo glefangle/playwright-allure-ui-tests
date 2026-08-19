@@ -1,0 +1,1 @@
+[{"values":["URL=https://www.saucedemo.com"],"name":"Base"},{"values":["User=standard_user"],"name":"Standard"},{"values":["chromium"],"name":"Browser"},{"values":["True"],"name":"Headless"},{"values":["30s"],"name":"Timeout"}]
